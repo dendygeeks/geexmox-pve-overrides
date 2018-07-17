@@ -1,6 +1,6 @@
 Origin: DendyGeeks
 Label: DendyGeeks Github
-Suite: stable
+Suite: geexmox 
 Codename: stretch
 Architectures: amd64
 Components: main
