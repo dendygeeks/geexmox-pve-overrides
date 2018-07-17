@@ -1,0 +1,20 @@
+Origin: DendyGeeks
+Label: DendyGeeks Github
+Suite: stable
+Codename: stretch
+Date: Tue, 17 Jul 2018 14:23:26 UTC
+Architectures: amd64
+Components: main
+Description: PVE overrides for GeekxMox
+MD5Sum:
+ 4a1c5ff67826be314f5eed3be8e649c1 3495 main/binary-amd64/Packages
+ e11f1c5bf7fa283f00a49a1a6330b6c4 1464 main/binary-amd64/Packages.gz
+ e24331357056e4682f45466cf3a283b7 136 main/binary-amd64/Release
+SHA1:
+ ceae2cfb0f1fbe85f99ff5f9768af00aed2cd04b 3495 main/binary-amd64/Packages
+ f918f2e82885bb4547148d613cceed71b41e6ed8 1464 main/binary-amd64/Packages.gz
+ 7fd39da62ed53eef83cd0e821144e19c7de77e97 136 main/binary-amd64/Release
+SHA256:
+ 88a79de74d43757498e5485e938433cc988ee501ff3eebb4e3d33bf79e43b59c 3495 main/binary-amd64/Packages
+ d868e10bf39accb3d89f578709fa970584e4ec4697d5b3ca6bbc567c74a4bcc1 1464 main/binary-amd64/Packages.gz
+ e4eb4da76e0efdae149f4fbc8097e251ecd45f753d02288733d74c303c90accd 136 main/binary-amd64/Release

@@ -1,0 +1,92 @@
+Package: linux-tools-4.15
+Source: pve-kernel
+Version: 4.15.18-15
+Architecture: amd64
+Maintainer: Proxmox Support Team <support@proxmox.com>
+Installed-Size: 5221
+Depends: linux-base, libc6 (>= 2.14), libelf1 (>= 0.144)
+Priority: optional
+Section: devel
+Filename: pool/main/p/pve-kernel/linux-tools-4.15_4.15.18-15_amd64.deb
+Size: 1062342
+SHA256: 453674768540b73169dbf88bf060da51f793dcda86903733b3c6e04cf5836da8
+SHA1: 600413efe51b68e1ee14235dd270922e3af12c76
+MD5sum: 8939e57dbdf34ef220cfae6ef0edeebd
+Description: Linux kernel version specific tools for version 4.15
+ This package provides the architecture dependent parts for kernel
+ version locked tools (such as perf and x86_energy_perf_policy)
+
+Package: linux-tools-4.15-dbgsym
+Source: pve-kernel
+Version: 4.15.18-15
+Auto-Built-Package: debug-symbols
+Architecture: amd64
+Maintainer: Proxmox Support Team <support@proxmox.com>
+Installed-Size: 4050
+Depends: linux-tools-4.15 (= 4.15.18-15)
+Priority: extra
+Section: debug
+Filename: pool/main/p/pve-kernel/linux-tools-4.15-dbgsym_4.15.18-15_amd64.deb
+Size: 3913236
+SHA256: 64dd5adbfdad65948ba50ea4334a9660dcea1e1bf077b45168c9f71b7897328c
+SHA1: 9abbbdeb0914d188d78919fd2f0e980e916ed134
+MD5sum: cbe8f0a30d19723cf00883af0ecc4c34
+Description: Debug symbols for linux-tools-4.15
+Build-Ids: b5629d7ea9a20b174be7c1e794f759e0885119b5
+
+Package: pve-edk2-firmware
+Version: 1.20180612-1
+Architecture: all
+Maintainer: Proxmox Support Team <support@proxmox.com>
+Installed-Size: 2058
+Homepage: http://www.tianocore.org
+Priority: extra
+Section: misc
+Filename: pool/main/p/pve-edk2-firmware/pve-edk2-firmware_1.20180612-1_all.deb
+Size: 895078
+SHA256: 0f3046c33fe7e1dc7e91f083b3ac7c6723f9dc1a46d33d000ab1f0546be02057
+SHA1: f7b71bfa2ab670780e834d436c6420e29a0344b7
+MD5sum: 38103515adb1d19b09063b985210518b
+Description: edk2 based firmware modules for virtual machines
+ Contains OVMF. Open Virtual Machine Firmware (OVMF) is a build of EDK II for
+ virtual machines. It includes full support for UEFI, including Secure Boot,
+ allowing use of UEFI in place of a traditional BIOS in your VM.
+ Proxmox VE specific release with disabled secure boot.
+
+Package: pve-headers-4.15.18-1-pve
+Source: pve-kernel
+Version: 4.15.18-15
+Architecture: amd64
+Maintainer: Proxmox Support Team <support@proxmox.com>
+Installed-Size: 61770
+Depends: coreutils | fileutils (>= 4.0)
+Provides: linux-headers, linux-headers-2.6
+Priority: optional
+Section: devel
+Filename: pool/main/p/pve-kernel/pve-headers-4.15.18-1-pve_4.15.18-15_amd64.deb
+Size: 9102092
+SHA256: 7ee42c3a25ead8cdba1fb58afeb534294884c12c9bb7217de6038139c686c05f
+SHA1: ffe93a0fdc70737cda06f9c3ff1ef0fc8f0a265d
+MD5sum: 785351dbdd554df735a211b5a8d60d86
+Description: The Proxmox PVE Kernel Headers
+ This package contains the linux kernel headers
+
+Package: pve-kernel-4.15.18-1-pve
+Source: pve-kernel
+Version: 4.15.18-15
+Architecture: amd64
+Maintainer: Proxmox Support Team <support@proxmox.com>
+Installed-Size: 254018
+Depends: busybox, grub-pc | grub-efi-amd64 | grub-efi-ia32 | grub-efi-arm64, initramfs-tools
+Suggests: pve-firmware
+Provides: linux-image, linux-image-2.6
+Priority: optional
+Section: admin
+Filename: pool/main/p/pve-kernel/pve-kernel-4.15.18-1-pve_4.15.18-15_amd64.deb
+Size: 52455300
+SHA256: 6b691edbc1c0c87233d33013c0cea099b760c1e340619b290b9149d331dce4bc
+SHA1: d3832fcdb353a59c6e79798d237a87e7e2f43036
+MD5sum: bb94fdedda17fdc81531613d3d914786
+Description: The Proxmox PVE Kernel Image
+ This package contains the linux kernel and initial ramdisk used for booting
+
