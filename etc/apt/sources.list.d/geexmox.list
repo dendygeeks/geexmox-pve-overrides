@@ -1,0 +1,3 @@
+# PVE overrides from GeexMox go here
+
+deb https://dendygeeks.github.io/geexmox-pve-overrides/ stretch geexmox

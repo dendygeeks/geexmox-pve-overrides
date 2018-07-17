@@ -1,0 +1,4 @@
+# force choosing packages from dendygeeks over other packages
+Package: *
+Pin: release c=geexmox
+Pin-Priority: 1001
