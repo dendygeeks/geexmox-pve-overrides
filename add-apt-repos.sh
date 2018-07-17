@@ -4,6 +4,8 @@ if [[ $EUID -ne 0 ]]; then
    exit 1
 fi
 
-cp -fR etc/apt /etc
+wget https://dendygeeks.github.io/geexmox-pve-overrides/etc/apt/preferences.d/geexmox -O /etc/apt/preferences.d/geexmox
+wget https://dendygeeks.github.io/geexmox-pve-overrides/etc/apt/sources.list.d/geexmox.list -O /etc/apt/sources.list.d/geexmox.list
+
 apt-get update
 
