@@ -1,7 +1,6 @@
 Origin: DendyGeeks
 Label: DendyGeeks Github
-Suite: geexmox 
 Codename: stretch
 Architectures: amd64
-Components: main
+Components: geexmox
 Description: PVE overrides for GeekxMox

@@ -7,7 +7,7 @@ Installed-Size: 5221
 Depends: linux-base, libc6 (>= 2.14), libelf1 (>= 0.144)
 Priority: optional
 Section: devel
-Filename: pool/main/p/pve-kernel/linux-tools-4.15_4.15.18-15_amd64.deb
+Filename: pool/geexmox/p/pve-kernel/linux-tools-4.15_4.15.18-15_amd64.deb
 Size: 1062342
 SHA256: 453674768540b73169dbf88bf060da51f793dcda86903733b3c6e04cf5836da8
 SHA1: 600413efe51b68e1ee14235dd270922e3af12c76
@@ -26,7 +26,7 @@ Installed-Size: 4050
 Depends: linux-tools-4.15 (= 4.15.18-15)
 Priority: extra
 Section: debug
-Filename: pool/main/p/pve-kernel/linux-tools-4.15-dbgsym_4.15.18-15_amd64.deb
+Filename: pool/geexmox/p/pve-kernel/linux-tools-4.15-dbgsym_4.15.18-15_amd64.deb
 Size: 3913236
 SHA256: 64dd5adbfdad65948ba50ea4334a9660dcea1e1bf077b45168c9f71b7897328c
 SHA1: 9abbbdeb0914d188d78919fd2f0e980e916ed134
@@ -42,7 +42,7 @@ Installed-Size: 2058
 Homepage: http://www.tianocore.org
 Priority: extra
 Section: misc
-Filename: pool/main/p/pve-edk2-firmware/pve-edk2-firmware_1.20180612-1_all.deb
+Filename: pool/geexmox/p/pve-edk2-firmware/pve-edk2-firmware_1.20180612-1_all.deb
 Size: 895078
 SHA256: 0f3046c33fe7e1dc7e91f083b3ac7c6723f9dc1a46d33d000ab1f0546be02057
 SHA1: f7b71bfa2ab670780e834d436c6420e29a0344b7
@@ -63,7 +63,7 @@ Depends: coreutils | fileutils (>= 4.0)
 Provides: linux-headers, linux-headers-2.6
 Priority: optional
 Section: devel
-Filename: pool/main/p/pve-kernel/pve-headers-4.15.18-1-pve_4.15.18-15_amd64.deb
+Filename: pool/geexmox/p/pve-kernel/pve-headers-4.15.18-1-pve_4.15.18-15_amd64.deb
 Size: 9102092
 SHA256: 7ee42c3a25ead8cdba1fb58afeb534294884c12c9bb7217de6038139c686c05f
 SHA1: ffe93a0fdc70737cda06f9c3ff1ef0fc8f0a265d
@@ -82,7 +82,7 @@ Suggests: pve-firmware
 Provides: linux-image, linux-image-2.6
 Priority: optional
 Section: admin
-Filename: pool/main/p/pve-kernel/pve-kernel-4.15.18-1-pve_4.15.18-15_amd64.deb
+Filename: pool/geexmox/p/pve-kernel/pve-kernel-4.15.18-1-pve_4.15.18-15_amd64.deb
 Size: 52455300
 SHA256: 6b691edbc1c0c87233d33013c0cea099b760c1e340619b290b9149d331dce4bc
 SHA1: d3832fcdb353a59c6e79798d237a87e7e2f43036
