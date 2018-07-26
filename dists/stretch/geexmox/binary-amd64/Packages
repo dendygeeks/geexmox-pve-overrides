@@ -43,10 +43,10 @@ Homepage: http://www.tianocore.org
 Priority: extra
 Section: misc
 Filename: pool/geexmox/p/pve-edk2-firmware/pve-edk2-firmware_1.20180612-1_all.deb
-Size: 895078
-SHA256: 0f3046c33fe7e1dc7e91f083b3ac7c6723f9dc1a46d33d000ab1f0546be02057
-SHA1: f7b71bfa2ab670780e834d436c6420e29a0344b7
-MD5sum: 38103515adb1d19b09063b985210518b
+Size: 894830
+SHA256: ac2337025544291f3e2a266d37c133423787515b495a00a3607c7776f7f32672
+SHA1: 84c5f346eb4cc06fefb12919058e334cf57cc215
+MD5sum: 506cfbe1b17918220db621cd45553d2a
 Description: edk2 based firmware modules for virtual machines
  Contains OVMF. Open Virtual Machine Firmware (OVMF) is a build of EDK II for
  virtual machines. It includes full support for UEFI, including Secure Boot,
