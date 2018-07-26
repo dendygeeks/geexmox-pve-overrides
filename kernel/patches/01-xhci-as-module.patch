@@ -1,0 +1,25 @@
+diff --git a/debian/rules b/debian/rules
+index e99db8c..42ced15 100755
+--- a/debian/rules
++++ b/debian/rules
+@@ -53,7 +53,19 @@ PVE_CONFIG_OPTS= \
+ -d CONFIG_UNWINDER_ORC \
+ -d CONFIG_UNWINDER_GUESS \
+ -e CONFIG_UNWINDER_FRAME_POINTER \
+--e CONFIG_PAGE_TABLE_ISOLATION
++-e CONFIG_PAGE_TABLE_ISOLATION \
++-m CONFIG_USB \
++-m CONFIG_USB_XHCI_HCD \
++-m CONFIG_USB_XHCI_PCI \
++-m CONFIG_USB_EHCI_HCD \
++-m CONFIG_USB_EHCI_PCI \
++-m CONFIG_USB_EHCI_HCD_PLATFORM \
++-m CONFIG_USB_OHCI_HCD \
++-m CONFIG_USB_OHCI_HCD_PCI \
++-m CONFIG_USB_OHCI_HCD_PLATFORM \
++-m CONFIG_USB_UHCI_HCD \
++-m CONFIG_USB_DWC2 \
++-d CONFIG_USB_OHCI_HCD_SSB
+ 
+ debian/control: $(wildcard debian/*.in)
+ 	sed -e 's/@@KVNAME@@/${KVNAME}/g' < debian/pve-kernel.prerm.in > debian/${PVE_KERNEL_PKG}.prerm
