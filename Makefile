@@ -1,8 +1,12 @@
+all: packages upload
+
 packages: firmware own-kernel
 
-upload: gh-pages 
+upload: gh-pages
+	apt-repo/rm-added-debs.sh
 	apt-repo/update-debs.sh
-	git commit
+	cd apt-repo ; git commit && git push
+	git push `git remote` gh-pages
 
 firmware: gh-pages
 	$(MAKE) -C edk2
@@ -23,6 +27,7 @@ own-kernel-clean:
 gh-pages: apt-repo/.git .build-deps
 	rm -rf apt-repo/incoming
 	mkdir -p apt-repo/incoming
+	cd apt-repo ; git pull
 
 apt-repo/.git:
 	git branch | grep gh-pages || git branch gh-pages origin/gh-pages
@@ -31,5 +36,5 @@ apt-repo/.git:
 clean: firmware-clean own-kernel-clean
 	rm -rf apt-repo
 
-.PHONY: gh-pages firmware firmware-clean upload packages clean own-kernel own-kernel-clean
+.PHONY: gh-pages firmware firmware-clean upload packages clean own-kernel own-kernel-clean all
 
