@@ -9,7 +9,7 @@ firmware: gh-pages
 	cp edk2/result/*.deb apt-repo/incoming
 
 .build-deps:
-	sudo apt-get install -y reprepro
+	sudo apt-get install -y reprepro git
 	touch $@
 
 gh-pages: apt-repo/.git .build-deps
