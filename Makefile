@@ -7,6 +7,8 @@ upload: gh-pages
 firmware: gh-pages
 	$(MAKE) -C edk2
 	cp edk2/result/*.deb apt-repo/incoming
+firmware-clean:
+	$(MAKE) -C edk2 clean
 
 .build-deps:
 	sudo apt-get install -y reprepro git
@@ -20,8 +22,8 @@ apt-repo/.git:
 	git branch | grep gh-pages || git branch gh-pages origin/gh-pages
 	git clone . --branch gh-pages --single-branch apt-repo
 
-clean:
+clean: firmware-clean
 	rm -rf apt-repo
 
-.PHONY: gh-pages firmware upload packages clean
+.PHONY: gh-pages firmware firmware-clean upload packages clean
 

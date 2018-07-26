@@ -1,3 +1,5 @@
+TARGET_SUBDIR:=pve-edk2-firmware
+
 all: build
 
 .build-deps:
@@ -15,15 +17,16 @@ patches/%.patch.done:
 	touch $@
 
 build: patching
-	$(MAKE) -C pve-edk2-firmware
+	$(MAKE) -C $(TARGET_SUBDIR) 
 	rm -rf result
 	mkdir -p result
-	cp pve-edk2-firmware/*.deb result
+	cp $(TARGET_SUBDIR)/*.deb result
 
 clean:
 	git submodule foreach --recursive git reset --hard
 	git submodule foreach --recursive git clean -fd 
 	rm -f patches/*.done
 	rm -rf result
+	$(MAKE) -C $(TARGET_SUBDIR) clean
 
 .PHONY: all upstream patching clean build
