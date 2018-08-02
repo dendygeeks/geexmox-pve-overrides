@@ -7,7 +7,7 @@ all: build
 	touch $@
 
 upstream: .build-deps
-	git submodule update --init --recursive
+	git submodule update --init --recursive $(TARGET_SUBDIR)
 
 patching: upstream $(addsuffix .done, $(wildcard patches/*.patch))
 patches/%.patch.done:
