@@ -5,3 +5,6 @@
 	path = kernel/pve-kernel
 	url = git://git.proxmox.com/git/pve-kernel.git
 	branch = pve-kernel-4.15
+[submodule "qemu-server/qemu-server"]
+	path = qemu-server/qemu-server
+	url = git://git.proxmox.com/git/qemu-server.git
