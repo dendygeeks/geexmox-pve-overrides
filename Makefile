@@ -1,6 +1,6 @@
 all: packages upload
 
-packages: firmware own-kernel qemu-srv
+packages: firmware own-kernel qemu-srv pve-mgr
 
 upload: gh-pages
 	apt-repo/rm-added-debs.sh
@@ -26,6 +26,12 @@ qemu-srv: gh-pages
 qemu-srv-clean:
 	$(MAKE) -C qemu-server clean 
 
+pve-mgr: gh-pages
+	$(MAKE) -C pve-manager
+	cp pve-manager/result/*.deb apt-repo/incoming
+pve-mgr-clean:
+	$(MAKE) -C pve-manager clean
+
 .build-deps:
 	sudo apt-get install -y reprepro git
 	touch $@
@@ -39,8 +45,8 @@ apt-repo/.git:
 	git branch | grep gh-pages || git branch gh-pages origin/gh-pages
 	git clone . --branch gh-pages --single-branch apt-repo
 
-clean: firmware-clean own-kernel-clean qemu-srv-clean
+clean: firmware-clean own-kernel-clean qemu-srv-clean pve-mgr-clean
 	rm -rf apt-repo
 
-.PHONY: gh-pages firmware firmware-clean upload packages clean own-kernel own-kernel-clean qemu-srv qemu-srv-clean all
+.PHONY: gh-pages firmware firmware-clean upload packages clean own-kernel own-kernel-clean qemu-srv qemu-srv-clean all pve-mgr pve-mgr-clean
 

@@ -8,3 +8,6 @@
 [submodule "qemu-server/qemu-server"]
 	path = qemu-server/qemu-server
 	url = git://git.proxmox.com/git/qemu-server.git
+[submodule "pve-manager/pve-manager"]
+	path = pve-manager/pve-manager
+	url = git://git.proxmox.com/git/pve-manager.git
