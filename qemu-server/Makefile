@@ -4,7 +4,7 @@ all: build
 
 .build-deps:
 	grep -E 'http://download.proxmox.com/debian/pve\s+stretch\s+pve-no-subscription' /etc/apt/sources.list.d/* || { echo 'deb [arch=amd64] http://download.proxmox.com/debian/pve stretch pve-no-subscription' | sudo tee -a /etc/apt/sources.list.d/pve-install-repo.list && sudo apt-get update ; }
-	sudo apt-get install build-essential dpkg-dev git pve-doc-generator debhelper lintian -y
+	sudo apt-get install build-essential dpkg-dev git pve-doc-generator debhelper lintian -y --allow-unauthenticated
 	touch $@
 
 upstream: .build-deps
