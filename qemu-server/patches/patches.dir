@@ -1,1 +1,3 @@
 01-add-no-bridge-to-pcie.patch qemu-server
+02-disable-snapshot-tests.patch qemu-server
+
