@@ -5,7 +5,7 @@ packages: firmware own-kernel qemu-srv pve-mgr
 upload: gh-pages
 	apt-repo/rm-added-debs.sh
 	apt-repo/update-debs.sh
-	cd apt-repo ; git commit && git push
+	cd apt-repo ; git add -u && git add conf db dists etc logos pool && git commit && git push
 	git push `git remote` gh-pages
 
 firmware: gh-pages
