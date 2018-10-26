@@ -43,10 +43,10 @@ Homepage: http://www.tianocore.org
 Priority: extra
 Section: misc
 Filename: pool/geexmox/p/pve-edk2-firmware/pve-edk2-firmware_1.20180612-1_all.deb
-Size: 894830
-SHA256: ac2337025544291f3e2a266d37c133423787515b495a00a3607c7776f7f32672
-SHA1: 84c5f346eb4cc06fefb12919058e334cf57cc215
-MD5sum: 506cfbe1b17918220db621cd45553d2a
+Size: 898596
+SHA256: 8dc79896e1938821c9524855478ab7224f700757c3af08fc94b67a73ff7e2ea6
+SHA1: 30f52772cd680ed43f4c1b3d9036dbffa5a31491
+MD5sum: 58ad8881b96b8a61fffd1c661e7efe51
 Description: edk2 based firmware modules for virtual machines
  Contains OVMF. Open Virtual Machine Firmware (OVMF) is a build of EDK II for
  virtual machines. It includes full support for UEFI, including Secure Boot,
@@ -89,4 +89,21 @@ SHA1: d3832fcdb353a59c6e79798d237a87e7e2f43036
 MD5sum: bb94fdedda17fdc81531613d3d914786
 Description: The Proxmox PVE Kernel Image
  This package contains the linux kernel and initial ramdisk used for booting
+
+Package: qemu-server
+Version: 5.0-32
+Architecture: amd64
+Maintainer: Proxmox Support Team <support@proxmox.com>
+Installed-Size: 594
+Depends: dbus, genisoimage, libc6 (>= 2.7-18), libio-multiplex-perl, libjson-perl, libjson-xs-perl, libnet-ssleay-perl, libpve-access-control (>= 5.0-7), libpve-common-perl (>= 5.0-35), libpve-guest-common-perl, libpve-storage-perl (>= 5.0-18), libterm-readline-gnu-perl, libuuid-perl, libxml-libxml-perl, perl (>= 5.10.0-19), pve-cluster, pve-firewall, pve-ha-manager, pve-qemu-kvm (>= 2.11.1-4), socat, pve-edk2-firmware
+Homepage: http://www.proxmox.com
+Priority: optional
+Section: admin
+Filename: pool/geexmox/q/qemu-server/qemu-server_5.0-32_amd64.deb
+Size: 179002
+SHA256: 5f0d0852f8dec9c9505503d8d3d9793fc0f7dde0c6da3288643f99e22fec501f
+SHA1: b7bfec240fd1b99d8b5813dd9d3ca751c94cae2d
+MD5sum: 4aff1e5323f0a0579ed098d7a3393700
+Description: Qemu Server Tools
+ This package contains the Qemu Server tools used by Proxmox VE
 
