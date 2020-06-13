@@ -1,12 +1,12 @@
-all: packages upload
+all: packages
 
 packages: firmware own-kernel qemu-srv pve-mgr
 
-upload: gh-pages
-	apt-repo/rm-added-debs.sh
-	apt-repo/update-debs.sh
-	cd apt-repo ; git add -u && git add conf db dists etc logos pool && git commit && git push
-	git push `git remote` gh-pages
+#upload: gh-pages
+#	apt-repo/rm-added-debs.sh
+#	apt-repo/update-debs.sh
+#	cd apt-repo ; git add -u && git add conf db dists etc logos pool && git commit && git push
+#	git push `git remote` gh-pages
 
 firmware: gh-pages
 	$(MAKE) -C edk2
@@ -24,7 +24,7 @@ qemu-srv: gh-pages
 	$(MAKE) -C qemu-server
 	cp qemu-server/result/*.deb apt-repo/incoming
 qemu-srv-clean:
-	$(MAKE) -C qemu-server clean 
+	$(MAKE) -C qemu-server clean
 
 pve-mgr: gh-pages
 	$(MAKE) -C pve-manager
@@ -33,17 +33,17 @@ pve-mgr-clean:
 	$(MAKE) -C pve-manager clean
 
 .build-deps:
-	sudo apt-get install -y reprepro git
-	touch $@
+#	sudo apt-get install -y reprepro git
+#	touch $@
 
-gh-pages: apt-repo/.git .build-deps
-	rm -rf apt-repo/incoming
-	mkdir -p apt-repo/incoming
-	cd apt-repo ; git pull
+#gh-pages: apt-repo/.git .build-deps
+#	rm -rf apt-repo/incoming
+#	mkdir -p apt-repo/incoming
+#	cd apt-repo ; git pull
 
-apt-repo/.git:
-	git branch | grep gh-pages || git branch gh-pages origin/gh-pages
-	git clone . --branch gh-pages --single-branch apt-repo
+#apt-repo/.git:
+#	git branch | grep gh-pages || git branch gh-pages origin/gh-pages
+#	git clone . --branch gh-pages --single-branch apt-repo
 
 clean: firmware-clean own-kernel-clean qemu-srv-clean pve-mgr-clean
 	rm -rf apt-repo

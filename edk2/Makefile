@@ -5,11 +5,11 @@ all: build
 .build-deps:
 	grep -E '^en_US.UTF-8\s+UTF-8' /etc/locale.gen || echo 'en_US.UTF-8 UTF-8' | sudo tee -a /etc/locale.gen
 	sudo locale-gen
-	sudo apt-get install build-essential git lintian debhelper iasl nasm python uuid-dev -y
+	sudo apt-get install build-essential git lintian debhelper iasl nasm python uuid-dev gcc-aarch64-linux-gnu python3.7-distutils -y
 	touch $@
 
 upstream: .build-deps
-	git submodule update --init --recursive $(TARGET_SUBDIR)
+	#git submodule update --init --recursive $(TARGET_SUBDIR)
 
 patching: upstream $(addsuffix .done, $(wildcard patches/*.patch))
 patches/%.patch.done:

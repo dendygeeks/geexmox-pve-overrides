@@ -1,0 +1,26 @@
+diff --git a/Makefile b/Makefile
+index 88068a2..24e8fd0 100644
+--- a/Makefile
++++ b/Makefile
+@@ -11,7 +11,7 @@ PKGREL=1
+ KERNEL_MAJMIN=$(KERNEL_MAJ).$(KERNEL_MIN)
+ KERNEL_VER=$(KERNEL_MAJMIN).$(KERNEL_PATCHLEVEL)
+ 
+-EXTRAVERSION=-${KREL}-pve
++EXTRAVERSION=-${KREL}-pve-geexmox
+ KVNAME=${KERNEL_VER}${EXTRAVERSION}
+ PACKAGE=pve-kernel-${KVNAME}
+ HDRPACKAGE=pve-headers-${KVNAME}
+diff --git a/debian/scripts/find-firmware.pl b/debian/scripts/find-firmware.pl
+index 9492bc9..125e34a 100755
+--- a/debian/scripts/find-firmware.pl
++++ b/debian/scripts/find-firmware.pl
+@@ -8,7 +8,7 @@ die "no directory to scan" if !$dir;
+ 
+ die "no such directory" if ! -d $dir;
+ 
+-die "strange directory name: $dir" if $dir !~ m|^(.*/)?(5.\d.\d+\-\d+\-pve)(/+)?$|;
++die "strange directory name: $dir" if $dir !~ m|^(.*/)?(5.\d.\d+\-\d+\-pve\-geexmox)(/+)?$|;
+ 
+ my $apiver = $2;
+ 
