@@ -1,61 +1,24 @@
-From d16b0bf52e3957561d2857b80aee22417ad7e9f6 Mon Sep 17 00:00:00 2001
-From: Nicholas Sherlock <n.sherlock@gmail.com>
-Date: Mon, 30 Apr 2018 12:59:13 +1200
-Subject: [PATCH] Revert readonly pagetables introduced by 2ac1730 and 147fd35
-
----
- MdeModulePkg/Core/DxeIplPeim/Ia32/DxeLoadFunc.c  |  6 ------
- MdeModulePkg/Core/DxeIplPeim/X64/VirtualMemory.c |  6 ------
- UefiCpuPkg/CpuDxe/CpuPageTable.c                 | 18 ++++++++++++------
- 3 files changed, 12 insertions(+), 18 deletions(-)
-
-diff --git a/MdeModulePkg/Core/DxeIplPeim/Ia32/DxeLoadFunc.c b/MdeModulePkg/Core/DxeIplPeim/Ia32/DxeLoadFunc.c
-index 0ec60893e..e009ff6b7 100644
---- a/MdeModulePkg/Core/DxeIplPeim/Ia32/DxeLoadFunc.c
-+++ b/MdeModulePkg/Core/DxeIplPeim/Ia32/DxeLoadFunc.c
-@@ -149,12 +149,6 @@ Create4GPageTablesIa32Pae (
-       );
-   }
- 
--  //
--  // Protect the page table by marking the memory used for page table to be
--  // read-only.
--  //
--  EnablePageTableProtection ((UINTN)PageMap, FALSE);
--
-   return (UINTN) PageMap;
- }
- 
-diff --git a/MdeModulePkg/Core/DxeIplPeim/X64/VirtualMemory.c b/MdeModulePkg/Core/DxeIplPeim/X64/VirtualMemory.c
-index d7a86c0d3..121a4e1e7 100644
---- a/MdeModulePkg/Core/DxeIplPeim/X64/VirtualMemory.c
-+++ b/MdeModulePkg/Core/DxeIplPeim/X64/VirtualMemory.c
-@@ -749,12 +749,6 @@ CreateIdentityMappingPageTables (
-       );
-   }
- 
--  //
--  // Protect the page table by marking the memory used for page table to be
--  // read-only.
--  //
--  EnablePageTableProtection ((UINTN)PageMap, TRUE);
--
-   if (PcdGetBool (PcdSetNxForStack)) {
-     EnableExecuteDisableBit ();
-   }
 diff --git a/UefiCpuPkg/CpuDxe/CpuPageTable.c b/UefiCpuPkg/CpuDxe/CpuPageTable.c
-index e2595b4d8..74eb224f2 100644
+index 0a02cb3f6b..2f2bea2b2e 100644
 --- a/UefiCpuPkg/CpuDxe/CpuPageTable.c
 +++ b/UefiCpuPkg/CpuDxe/CpuPageTable.c
-@@ -946,7 +946,6 @@ InitializePageTablePool (
+@@ -1068,7 +1068,6 @@ InitializePageTablePool (
    )
  {
    VOID                      *Buffer;
 -  BOOLEAN                   IsModified;
  
    //
+   // Do not allow re-entrance.
+@@ -1078,7 +1077,6 @@ InitializePageTablePool (
+   }
+ 
+   mPageTablePoolLock = TRUE;
+-  IsModified = FALSE;
+ 
+   //
    // Always reserve at least PAGE_TABLE_POOL_UNIT_PAGES, including one page for
-@@ -986,13 +985,12 @@ InitializePageTablePool (
+@@ -1124,17 +1122,16 @@ InitializePageTablePool (
      NULL,
      (PHYSICAL_ADDRESS)(UINTN)Buffer,
      EFI_PAGES_TO_SIZE (PoolPages),
@@ -69,25 +32,31 @@ index e2595b4d8..74eb224f2 100644
      );
 -  ASSERT (IsModified == TRUE);
  
-   return TRUE;
+ Done:
+   mPageTablePoolLock = FALSE;
+-  return IsModified;
++  return TRUE;
  }
-@@ -1062,9 +1060,17 @@ InitializePageTableLib (
-   if (CurrentPagingContext.ContextData.X64.PageTableBase != 0 &&
-       (CurrentPagingContext.ContextData.Ia32.Attributes &
-        PAGE_TABLE_LIB_PAGING_CONTEXT_IA32_X64_ATTRIBUTES_PAE) != 0) {
+ 
+ /**
+@@ -1358,9 +1355,18 @@ InitializePageTableLib (
+   //
+   if ((*PageTableBase != 0) &&
+       (*Attributes & PAGE_TABLE_LIB_PAGING_CONTEXT_IA32_X64_ATTRIBUTES_PAE) != 0) {
 -    DisableReadOnlyPageWriteProtect ();
 +
 +    BOOLEAN IsWpEnabled;
 +
-+    IsWpEnabled = IsReadOnlyPageWriteProtected ();
++    IsWpEnabled = IsReadOnlyPageWriteProtected();
 +    if (IsWpEnabled) {
-+      DisableReadOnlyPageWriteProtect ();
++      DisableReadOnlyPageWriteProtect();
 +    }
      InitializePageTablePool (1);
 -    EnableReadOnlyPageWriteProtect ();
++
 +    if (IsWpEnabled) {
-+      EnableReadOnlyPageWriteProtect ();
++      EnableReadOnlyPageWriteProtect (); 
 +    }
    }
  
-   DEBUG ((DEBUG_INFO, "CurrentPagingContext:\n", CurrentPagingContext.MachineType));
+   if (HEAP_GUARD_NONSTOP_MODE || NULL_DETECTION_NONSTOP_MODE) {

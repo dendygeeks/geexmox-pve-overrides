@@ -25,7 +25,7 @@ build: patching
 
 clean:
 	git submodule foreach --recursive git reset --hard
-	git submodule foreach --recursive git clean -fd 
+	git submodule foreach --recursive git clean -fd
 	rm -f patches/*.done
 	rm -rf result
 	$(MAKE) -C $(TARGET_SUBDIR) clean

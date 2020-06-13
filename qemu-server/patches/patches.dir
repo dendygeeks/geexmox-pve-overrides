@@ -1,3 +1,2 @@
-01-add-no-bridge-to-pcie.patch qemu-server
+01-geexmox-logo.patch qemu-server
 02-disable-snapshot-tests.patch qemu-server
-03-geexmox-logo.patch qemu-server

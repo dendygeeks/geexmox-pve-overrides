@@ -1,10 +1,10 @@
 diff --git a/OvmfPkg/OvmfPkgX64.dsc b/OvmfPkg/OvmfPkgX64.dsc
-index 0767b34d1..63048ca44 100644
+index f7fe75ebf5..4a0eb3a6f6 100644
 --- a/OvmfPkg/OvmfPkgX64.dsc
 +++ b/OvmfPkg/OvmfPkgX64.dsc
-@@ -544,8 +544,8 @@
-   gEfiMdeModulePkgTokenSpaceGuid.PcdFlashNvStorageFtwWorkingBase|0
+@@ -584,8 +584,8 @@
    gEfiMdeModulePkgTokenSpaceGuid.PcdFlashNvStorageFtwSpareBase|0
+ !endif
    gEfiMdeModulePkgTokenSpaceGuid.PcdPciDisableBusEnumeration|FALSE
 -  gEfiMdeModulePkgTokenSpaceGuid.PcdVideoHorizontalResolution|800
 -  gEfiMdeModulePkgTokenSpaceGuid.PcdVideoVerticalResolution|600
