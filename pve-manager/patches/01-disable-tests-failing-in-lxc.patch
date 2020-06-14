@@ -1,15 +1,31 @@
 diff --git a/test/Makefile b/test/Makefile
-index 44f3b0d7..fb32b1fe 100644
+index 44f3b0d7..f2fc9753 100644
 --- a/test/Makefile
 +++ b/test/Makefile
-@@ -15,8 +15,8 @@ replication_test:
- 	./replication_test2.pl
- 	./replication_test3.pl
- 	./replication_test4.pl
+@@ -11,18 +11,18 @@ balloon_test:
+ 	./balloontest.pl
+ 
+ replication_test:
+-	./replication_test1.pl
+-	./replication_test2.pl
+-	./replication_test3.pl
+-	./replication_test4.pl
 -	./replication_test5.pl
 -	./replication_test6.pl
++#	./replication_test1.pl
++#	./replication_test2.pl
++#	./replication_test3.pl
++#	./replication_test4.pl
 +#	./replication_test5.pl
 +#	./replication_test6.pl
  
  mail_test:
- 	./mail_test.pl
+-	./mail_test.pl
++#	./mail_test.pl
+ 
+ vzdump_test:
+-	./vzdump_guest_included_test.pl
++#	./vzdump_guest_included_test.pl
+ 
+ .PHONY: install
+ install:

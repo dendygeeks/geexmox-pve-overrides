@@ -1,11 +1,14 @@
 #!/bin/bash
 if [[ $EUID -ne 0 ]]; then
-   echo "This script must be run as root" 
+   echo "This script must be run as root"
    exit 1
 fi
 
-cp etc/apt/preferences.d/pve_override /etc/apt/preferences.d/geexmox
-echo "deb [trusted=yes] file:" `dirname $0`/result ./ > /etc/apt/sources.list.d/geexmox
+SCRIPT=$(readlink -f $0)
+DIR=`dirname $SCRIPT`
+
+cp etc/apt/preferences.d/pve_override /etc/apt/preferences.d/geexmox_pve_override
+echo "deb [trusted=yes] file:"$DIR/result ./ > /etc/apt/sources.list.d/geexmox_local.list
 
 apt-get update
 

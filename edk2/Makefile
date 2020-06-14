@@ -5,7 +5,7 @@ all: build
 .build-deps:
 	grep -E '^en_US.UTF-8\s+UTF-8' /etc/locale.gen || echo 'en_US.UTF-8 UTF-8' | sudo tee -a /etc/locale.gen
 	sudo locale-gen
-	sudo apt-get install build-essential git lintian debhelper iasl nasm python uuid-dev gcc-aarch64-linux-gnu python3.7-distutils -y
+	sudo apt-get install build-essential git lintian debhelper iasl nasm python uuid-dev gcc-aarch64-linux-gnu python3.7-distutils bc -y
 	touch $@
 
 upstream: .build-deps
